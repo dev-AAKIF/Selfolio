@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRegisterUserMutation } from "../../redux/Slice/authSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { toast } from "sonner";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -23,29 +23,7 @@ const Signup = () => {
   const [registerUser] = useRegisterUserMutation();
   const navigate = useNavigate();
 
-  // const validate = () => {
-  //   const newErrors = {};
-  //   if (!form.firstName.trim()) newErrors.firstName = "First name is required";
-  //   if (!form.lastName.trim()) newErrors.lastName = "Last name is required";
-  //   if (!form.email.trim() || !/\S+@\S+\.\S+/.test(form.email))
-  //     newErrors.email = "Valid email is required";
-  //   if (!form.password || form.password.length < 6)
-  //     newErrors.password = "Password must be at least 6 characters";
-  //   if (!/[A-Z]/.test(form.password) || !/[!@#$%^&]/.test(form.password))
-  //     newErrors.password =
-  //       "Password must include a capital letter and a special character";
-  //   if (form.password !== form.confirmPassword)
-  //     newErrors.confirmPassword = "Passwords do not match";
-  //   if (!form.phoneNumber.trim() || !/^\d{10}$/.test(form.phoneNumber))
-  //     newErrors.phoneNumber = "Enter a valid 10-digit phone number";
-  //   if (!form.dateOfBirth) newErrors.dateOfBirth = "Date of Birth required";
-  //   if (!profilePhoto) newErrors.profilePhoto = "Profile image required";
-
-  //   setErrors(newErrors);
-  //   return Object.keys(newErrors).length === 0;
-  // };
-
-   const validate = () => {
+  const validate = () => {
     if (!form.firstName.trim()) {
       toast.error("First name is required");
       return false;
@@ -63,7 +41,9 @@ const Signup = () => {
       return false;
     }
     if (!/[A-Z]/.test(form.password) || !/[!@#$%^&]/.test(form.password)) {
-      toast.error("Password must include a capital letter and a special character");
+      toast.error(
+        "Password must include a capital letter and a special character"
+      );
       return false;
     }
     if (form.password !== form.confirmPassword) {
@@ -86,7 +66,6 @@ const Signup = () => {
     return true;
   };
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
@@ -102,7 +81,7 @@ const Signup = () => {
     setProfilePhoto(file);
     setImagePreview(URL.createObjectURL(file));
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
@@ -169,7 +148,6 @@ const Signup = () => {
               className="w-full border border-gray-400 py-2 px-3 rounded-sm tracking-wider"
             />
           </div>
-          
 
           <input
             type="email"
@@ -209,9 +187,7 @@ const Signup = () => {
             />
             <button
               type="button"
-              onClick={() =>
-                setShowConfirmPassword((prev) => !prev)
-              }
+              onClick={() => setShowConfirmPassword((prev) => !prev)}
               className="absolute top-2.5 right-3 text-gray-500"
             >
               {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
@@ -237,12 +213,12 @@ const Signup = () => {
 
           <p className="text-left text-sm text-gray-600">
             Already have an account?{" "}
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="text-[#093028] hover:underline font-medium"
             >
               Sign In
-            </a>
+            </Link>
           </p>
 
           <button

@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { toast } from "sonner";
 import { LoginSetToken } from "../../redux/Slice/tokenSlice";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -80,14 +81,14 @@ const Login = () => {
             </button>
           </div>
           <p className="text-left text-sm text-gray-600">
-          Don't have an account?{" "}
-          <a
-            href="/signup"
-            className="text-[#093028] hover:underline font-medium"
-          >
-            Sign Up
-          </a>
-        </p>
+            Don't have an account?{" "}
+            <Link
+              to="/signup"
+              className="text-[#093028] hover:underline font-medium"
+            >
+              Sign Up
+            </Link>
+          </p>
 
           <button
             type="submit"
@@ -97,7 +98,6 @@ const Login = () => {
           </button>
         </form>
       </div>
-
     </div>
   );
 };
