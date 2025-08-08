@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+// import Signup from "./Pages/Signup/Signup.jsx";
 import Signup from "./Pages/Signup/Signup.jsx";
 import Login from "./Pages/Login/Login.jsx";
 import Home from "./Pages/Home/Home.jsx";
