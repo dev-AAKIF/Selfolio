@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const SignUp = () => {
+const Signup = () => {
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -257,4 +257,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;
