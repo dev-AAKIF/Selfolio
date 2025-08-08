@@ -1,6 +1,5 @@
 import BaseApi from '../BaseQuery/baseQuery.js';
 
-
 export const AuthApi = BaseApi.injectEndpoints({
     endpoints :(builder) => ({
         

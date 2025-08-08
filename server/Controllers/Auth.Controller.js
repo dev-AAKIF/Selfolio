@@ -64,11 +64,10 @@ if (confirmPassword !== password) {
 
   // Create User
   const user = await User.create({
-    email,
-    password,
-    confirmPassword,
     firstName,
     lastName,
+    email,
+    password,
     phoneNumber,
     profilePhoto: profilePhotoUrl,
     dateOfBirth: dob.toDate()
